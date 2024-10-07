@@ -4,6 +4,7 @@ import styles from './Dialog.module.scss';
 import ImageSuccess from '@/assets/svg/icon-success.svg';
 import ImageInfo from '@/assets/svg/icon-info.svg';
 import ImageDanger from '@/assets/svg/icon-danger.svg';
+import { Button } from '@/components/Button';
 
 export type DialogProps = {
   title: string;
@@ -58,43 +59,30 @@ export const Dialog: FC<DialogProps> = ({
 
           {/* conditional rendering, https://react.dev/learn/conditional-rendering# */}
           {variant === 'success' && (
-            <button
-              className={clsx(
-                styles.button,
-                styles.cancel,
-                isDisabled && styles.disabled
-              )}
+            <Button
               onClick={props.onClose}
-              disabled={isDisabled}
+              isDisabled={isDisabled}
             >
-              Ok
-            </button>
+              {confirmValue}
+            </Button>
           )}
 
           {variant !== 'success' && (
             <>
-              <button
-                className={clsx(
-                  styles.button,
-                  styles.cancel,
-                  isDisabled && styles.disabled
-                )}
-                onClick={props.onClose}
-                disabled={isDisabled}
-              >
-                Cancel
-              </button>
-              <button
-                className={clsx(
-                  styles.button,
-                  styles[variant],
-                  isDisabled && styles.disabled
-                )}
-                onClick={props.onConfirm}
-                disabled={isDisabled}
-              >
-                {confirmValue}
-              </button>
+            <Button
+              color='secondary'
+              onClick={props.onClose}
+              isDisabled={isDisabled}
+            >
+              Cancel
+            </Button>
+            <Button
+              color={variant === 'info' ? 'primary' : 'danger'}
+              onClick={props.onConfirm}
+              isDisabled={isDisabled}
+            >
+              {confirmValue}
+            </Button>
             </>
           )}
 

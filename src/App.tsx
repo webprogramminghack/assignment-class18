@@ -11,6 +11,7 @@ function App() {
         variant='success'
         title='Successfully loaded'
         description='Neque porro quisquam est qui dolorem ipsum'
+        confirmValue='Ok'
       />
       {/* <Dialog
         variant='info'
