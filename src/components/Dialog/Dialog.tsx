@@ -17,7 +17,7 @@ export type DialogProps = {
 };
 
 const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
-  // _exhaustiveCheck inspired by https://medium.com/technogise/type-safe-and-exhaustive-switch-statements-aka-pattern-matching-in-typescript-e3febd433a7a
+  // i got trouble on using _exhaustiveCheck, the output from eslint is "Unexpected lexical declaration in case block", so is use this approach inspired by https://medium.com/technogise/type-safe-and-exhaustive-switch-statements-aka-pattern-matching-in-typescript-e3febd433a7a
   const _exhaustiveCheck = (_: never) => {
     throw new Error(_);
   }
@@ -29,6 +29,8 @@ const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
     case 'danger':
       return <ImageDanger className={clsx(styles.icon)} />;
     default:
+      // const _exhaustiveCheck: never = variant;
+      // throw new Error(_exhaustiveCheck);
       return _exhaustiveCheck(variant);
   }
 };
