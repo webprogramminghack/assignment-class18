@@ -6,14 +6,14 @@ type ButtonProps = {
   color?: 'primary' | 'secondary' | 'danger';
   children: React.ReactNode;
   onClick?: () => void;
-  isDisabled?: boolean;
+  isDisabled?: boolean | undefined;
 };
 
 export const Button: React.FC<ButtonProps> = ({
   color = 'primary',
   children,
   onClick,
-  isDisabled = false,
+  isDisabled,
 }) => {
   return (
     <button

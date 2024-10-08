@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import styles from './Dialog.module.scss';
 import ImageSuccess from '@/assets/svg/icon-success.svg';
@@ -59,7 +59,6 @@ export const Dialog = <V extends DialogVariant>({
           {variant === 'success' && (
             <Button
               onClick={onClose}
-              isDisabled={isDisabled}
             >
               {confirmValue}
             </Button>
