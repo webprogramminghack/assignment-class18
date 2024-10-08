@@ -6,15 +6,16 @@ import ImageInfo from '@/assets/svg/icon-info.svg';
 import ImageDanger from '@/assets/svg/icon-danger.svg';
 import { Button } from '@/components/Button';
 
-export type DialogProps = {
+type DialogVariant = 'success' | 'info' | 'danger';
+
+type DialogProps<V extends DialogVariant = DialogVariant> = {
   title: string;
   description: string;
-  variant: 'success' | 'info' | 'danger';
+  variant: V;
   confirmValue?: string;
-  isDisabled?: boolean;
+  isDisabled?: V extends 'success' ? never : boolean;
   onConfirm?: () => void;
   onClose?: () => void;
-  className?: string;
 };
 
 const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
