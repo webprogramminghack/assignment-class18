@@ -33,14 +33,15 @@ const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
   }
 };
 
-export const Dialog: FC<DialogProps> = ({
+export const Dialog = <V extends DialogVariant>({
   title,
   description,
   variant,
   confirmValue = 'Confirm',
-  isDisabled = false,
-  ...props
-}) => {
+  isDisabled,
+  onConfirm,
+  onClose,
+}: DialogProps<V>) => {
   return (
     <div className={clsx(styles.dialog)}>
       <div className={clsx(styles.body)}>
@@ -57,7 +58,7 @@ export const Dialog: FC<DialogProps> = ({
           {/* conditional rendering, https://react.dev/learn/conditional-rendering# */}
           {variant === 'success' && (
             <Button
-              onClick={props.onClose}
+              onClick={onClose}
               isDisabled={isDisabled}
             >
               {confirmValue}
@@ -68,14 +69,14 @@ export const Dialog: FC<DialogProps> = ({
             <>
             <Button
               color='secondary'
-              onClick={props.onClose}
+              onClick={onClose}
               isDisabled={isDisabled}
             >
               Cancel
             </Button>
             <Button
               color={variant === 'info' ? 'primary' : 'danger'}
-              onClick={props.onConfirm}
+              onClick={onConfirm}
               isDisabled={isDisabled}
             >
               {confirmValue}
