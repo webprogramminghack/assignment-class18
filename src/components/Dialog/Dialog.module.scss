@@ -4,39 +4,39 @@ $white: #FFFFFF;
 .dialog {
   position: relative;
   width: 37.5rem;
-  height: 217px;
+  height: rem-calc(217);
   background-color: $white;
   display: flex;
   flex-direction: column;
-  border-radius: 5px 5px;
+  border-radius: rem-calc(5) rem-calc(5);
 
   .body{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 32px 39px 41px;
+    margin: rem-calc(32) rem-calc(39) rem-calc(41);
 
     .content{
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      row-gap: 8px;
+      row-gap: rem-calc(8);
       height: 100%;
-      padding-top: 7px;
-      margin-left: 24px;
+      padding-top: rem-calc(7);
+      margin-left: rem-calc(24);
 
       .title {
-        font-size: 19px;
+        font-size: rem-calc(19);
         font-weight: 700;
-        line-height: 25.14px;
+        line-height: rem-calc(25.14);
         color: $black;
       }
 
       .description {
-        font-size: 13px;
+        font-size: rem-calc(13);
         font-weight: 500;
-        line-height: 17.2px;
+        line-height: rem-calc(17.2);
         color: $black;
       }
     }
@@ -45,58 +45,25 @@ $white: #FFFFFF;
   .footer {
     display: flex;
     width: 100%;
-    height: 80px;
+    height: rem-calc(80);
     position: absolute;
     bottom: 0;
     justify-content: flex-end;
     align-items: center;
     background-color: #F5F5F5;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px rem-calc(5) rem-calc(5);
 
     .content {
       display: flex;
-      column-gap: 20px;
+      column-gap: rem-calc(20);
       align-items: center;
-      margin: 18px 29.5px 17px auto;
+      margin: rem-calc(18) rem-calc(29.5) rem-calc(17) auto;
 
-      // .button {
-      //   padding: 13px 20px;
-      //   font-size: 14px;
-      //   font-weight: 500;
-      //   line-height: 17.2px;
-      //   color: #000000;
-      //   border-radius: 5px;
-
-      //   &.cancel {
-      //     background-color: $white;
-      //     border: #D3D9E7 1px solid;
-      //     &.disabled {
-      //       color: #D8D8D8;
-      //       border: 1px solid #D8D8D8;
-      //     }
-      //   }
-      
-      //   &.info {
-      //     background-color: #0093DD;
-      //     color: $white;
-      //     &.disabled {
-      //       background-color: #D9DCDD;
-      //     }
-      //   }
-
-      //   &.danger {
-      //     background-color: #FF1F00;
-      //     color: $white;
-      //     &.disabled {
-      //       background-color: #DEDAD9;
-      //     }
-      //   }
-      // }
     }
   }
 }
 
 .icon {
-  width: 64px;
-  height: 64px;
+  width: rem-calc(64);
+  height: rem-calc(64);
 }
