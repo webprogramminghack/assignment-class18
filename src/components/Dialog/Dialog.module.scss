@@ -2,7 +2,6 @@ $black: #000000;
 $white: #FFFFFF;
 
 .dialog {
-  position: relative;
   width: 37.5rem;
   height: rem-calc(217);
   background-color: $white;
@@ -12,15 +11,11 @@ $white: #FFFFFF;
 
   .body{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
     margin: rem-calc(32) rem-calc(39) rem-calc(41);
 
     .content{
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
       row-gap: rem-calc(8);
       height: 100%;
       padding-top: rem-calc(7);
@@ -46,8 +41,6 @@ $white: #FFFFFF;
     display: flex;
     width: 100%;
     height: rem-calc(80);
-    position: absolute;
-    bottom: 0;
     justify-content: flex-end;
     align-items: center;
     background-color: #F5F5F5;
