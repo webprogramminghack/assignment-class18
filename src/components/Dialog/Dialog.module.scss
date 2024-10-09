@@ -2,7 +2,7 @@ $black: #000000;
 $white: #FFFFFF;
 
 .dialog {
-  width: 37.5rem;
+  width: rem-calc(600);
   height: rem-calc(217);
   background-color: $white;
   display: flex;
@@ -44,7 +44,7 @@ $white: #FFFFFF;
     justify-content: flex-end;
     align-items: center;
     background-color: #F5F5F5;
-    border-radius: 0px 0px rem-calc(5) rem-calc(5);
+    border-radius: 0 0 rem-calc(5) rem-calc(5);
 
     .content {
       display: flex;

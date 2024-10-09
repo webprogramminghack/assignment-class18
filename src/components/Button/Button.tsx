@@ -10,7 +10,7 @@ type ButtonProps = {
 };
 
 export const Button: React.FC<ButtonProps> = ({
-  color = 'primary',
+  color = 'secondary',
   children,
   onClick,
   isDisabled,
