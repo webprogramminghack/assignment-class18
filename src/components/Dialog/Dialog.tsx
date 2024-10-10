@@ -1,6 +1,5 @@
 import styles from './Dialog.module.scss';
-import React, { useEffect, useState } from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import ImageSuccess from '@/assets/svg/icon-success.svg';
 import ImageInfo from '@/assets/svg/icon-info.svg';
 import ImageDanger from '@/assets/svg/icon-danger.svg';
@@ -9,50 +8,26 @@ import { Button } from '@/components/Button';
 type DialogVariant = 'success' | 'info' | 'danger';
 
 type DialogProps<V extends DialogVariant = DialogVariant> = {
+  title: string;
+  description: string;
   variant: V;
   isDisabled?: V extends 'success' ? never : boolean;
-  onConfirm?: () => void;
-  onClose?: () => void;
 };
 
 export const Dialog = <V extends DialogVariant>({
+  title,
+  description,
   variant,
-  isDisabled,
-  // onConfirm,
-  // onClose,
+  isDisabled
 }: DialogProps<V>) => {
-  const [content, setContent] = useState({
-    title: '',
-    description: ''
-  });
-
-  useEffect(() => {
-    if (variant === 'success') {
-      setContent({
-        title: 'Successfully loaded',
-        description: 'Neque porro quisquam est qui dolorem ipsum'
-      });
-    } else if (variant === 'info') {
-      setContent({
-        title: 'New Information',
-        description: 'Neque porro quisquam est qui dolorem ipsum'
-      });
-    } else if (variant === 'danger') {
-      setContent({
-        title: 'Are you sure you want to delete this user?',
-        description: 'This action is irreversible'
-      });
-    }
-  }, [variant]);
-
   const getSrcVariant = (variant: DialogProps['variant']): React.ReactElement => {
     switch (variant) {
       case 'success':
-        return <ImageSuccess className={clsx(styles.icon)} />;
+        return <ImageSuccess className={styles.icon} />;
       case 'info':
-        return <ImageInfo className={clsx(styles.icon)} />;
+        return <ImageInfo className={styles.icon} />;
       case 'danger':
-        return <ImageDanger className={clsx(styles.icon)} />;
+        return <ImageDanger className={styles.icon} />;
       default: {
         const _exhaustiveCheck: never = variant;
         throw new Error(`Unhandled variant: ${_exhaustiveCheck}`);
@@ -61,15 +36,15 @@ export const Dialog = <V extends DialogVariant>({
   };
 
   return (
-    <div className={clsx(styles.dialog)}>
-      <div className={clsx(styles.dialogBody)}>
+    <div className={styles.dialog}>
+      <div className={styles.body}>
         {getSrcVariant(variant)}
         <div>
-          <h3 className={clsx(styles.title)}>{content.title}</h3>
-          <p className={clsx(styles.description)}>{content.description}</p>
+          <h3 className={styles.title}>{title}</h3>
+          <p className={styles.description}>{description}</p>
         </div>
       </div>
-      <div className={clsx(styles.dialogFooter)}>
+      <div className={styles.footer}>
         <Button color='secondary' disabled={isDisabled}>
           { variant === 'success' ? 'OK' : 'Cancel' }
         </Button>

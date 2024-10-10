@@ -8,22 +8,8 @@ function App() {
       {/* Ensure it matches the design exactly */}
       <Dialog
         variant='success'
-      />
-      <Dialog
-        variant='info'
-        isDisabled={false}
-      />
-      <Dialog
-        variant='info'
-        isDisabled={true}
-      />
-      <Dialog
-        variant='danger'
-        isDisabled={false}
-      />
-      <Dialog
-        variant='danger'
-        isDisabled={false}
+        title='Successfully loaded'
+        description='Neque porro quisquam est qui dolorem ipsum'
       />
     </div>
   );

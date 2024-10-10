@@ -1,16 +1,14 @@
 .dialog {
   width: rem-calc(600);
   height: rem-calc(217);
-  left: rem-calc(-942);
   background: $white;
   display: flex;
   flex-direction: column;
-  border-radius: rem-calc(5) rem-calc(5) 0px 0px;
-  border: rem-calc(8) 0px 0px 0px;
+  border-radius: rem-calc(5);
+  border: rem-calc(8) 0 0 0;
 
-  .dialogBody {
+  .body {
     display: flex;
-    flex-direction: row;
     align-items: center;
     margin: rem-calc(26);
     height: rem-calc(215);
@@ -33,7 +31,7 @@
   }
 }
 
-.dialogFooter {
+.footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -41,8 +39,8 @@
   height: rem-calc(80);
   top: rem-calc(242);
   gap: rem-calc(20);
-  border-radius: 0px 0px rem-calc(5) rem-calc(5);
-  border: 1px 0px 0px 0px;
+  border-radius: 0 0 rem-calc(5) rem-calc(5);
+  border: 1px 0 0 0;
   background: #F5F5F5;
   padding: rem-calc(18) rem-calc(29.5) rem-calc(17) rem-calc(5);
 }
