@@ -1,0 +1,31 @@
+button {
+  height: rem-calc(45);
+  padding: 0 rem-calc(20);
+  border-radius: rem-calc(5);
+  font-weight: 500;
+  &.primary {
+    color: #fff;
+    &.success {
+      display: none;
+    }
+    &.info {
+      background-color: #0093dd;
+    }
+    &.danger {
+      background-color: #ff1f00;
+    }
+    &:disabled {
+      background: #d9dcdd;
+    }
+  }
+  &.secondary {
+    background-color: #fff;
+    &:disabled {
+      color: #d8d8d8;
+    }
+  }
+}
+
+:disabled {
+  pointer-events: none;
+}

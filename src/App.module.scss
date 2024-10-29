@@ -1,7 +1,13 @@
 .container {
-  display: flex;
+  display: block;
   height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: #e5e5e5;
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: auto;
+    width: 100vw;
+  }
 }
