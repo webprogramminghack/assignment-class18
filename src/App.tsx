@@ -8,30 +8,35 @@ function App() {
       <Header>D I A L O G</Header>
       <div className={styles.main}>
         <Dialog
+          color='primary'
           variant='success'
           title='Successfully loaded'
           subtitle='Neque porro quisquam est qui dolorem ipsum'
           isDisabled={false}
         ></Dialog>
         <Dialog
+          color='danger'
           variant='info'
           title='New information?'
           subtitle='Neque porro quisquam est qui dolorem ipsum'
           isDisabled={false}
         ></Dialog>
         <Dialog
+          color='secondary'
           variant='info'
           title='New information?'
           subtitle='Neque porro quisquam est qui dolorem ipsum'
           isDisabled={true}
         ></Dialog>
         <Dialog
+          color='danger'
           variant='danger'
           title='Are you sure you want to delete this user?'
           subtitle='This action is irreversible'
           isDisabled={false}
         ></Dialog>
         <Dialog
+          color='danger'
           variant='danger'
           title='Are you sure you want to delete this user?'
           subtitle='This action is irreversible'

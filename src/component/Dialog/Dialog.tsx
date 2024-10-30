@@ -1,4 +1,4 @@
-import { ButtonConfirm } from '@/component/Button/Button';
+import { Button } from '@/component/Button/Button';
 import clsx from 'clsx';
 import React, { ReactNode } from 'react';
 import styles from './Dialog.module.scss';
@@ -19,6 +19,7 @@ export const Header: React.FC<HeaderProps> = ({ children }) => {
 
 type DialogProps = {
   variant: 'success' | 'info' | 'danger';
+  color: 'primary' | 'secondary' | 'danger';
   title: string;
   subtitle: string;
   isDisabled?: boolean;
@@ -57,7 +58,19 @@ export const Dialog: React.FC<DialogProps> = ({
         </div>
       </div>
       <div className={clsx(styles.buttonWrapper)}>
-        <ButtonConfirm variant={variant} disabled={isDisabled}></ButtonConfirm>
+        <Button color='secondary' disabled={isDisabled}>
+          {variant === 'success' && <span>OK</span>}
+          {variant !== 'success' && <span>Cancel</span>}
+        </Button>
+        {variant === 'success' || (
+          <Button
+            color={variant === 'info' ? 'primary' : 'danger'}
+            disabled={isDisabled}
+          >
+            {variant === 'info' && <span>Create</span>}
+            {variant !== 'info' && <span>Delete</span>}
+          </Button>
+        )}
       </div>
     </div>
   );
