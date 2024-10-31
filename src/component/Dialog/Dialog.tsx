@@ -1,21 +1,10 @@
+import IconDanger from '@/assets/svg/icon-danger.svg';
+import IconInfo from '@/assets/svg/icon-info.svg';
+import IconSuccess from '@/assets/svg/icon-success.svg';
 import { Button } from '@/component/Button/Button';
 import clsx from 'clsx';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styles from './Dialog.module.scss';
-
-type HeaderProps = {
-  children: ReactNode;
-  className?: string;
-};
-
-export const Header: React.FC<HeaderProps> = ({ children }) => {
-  return (
-    <div>
-      <p className={clsx(styles.header)}>{children}</p>
-      <div className={clsx(styles.line)}></div>
-    </div>
-  );
-};
 
 type DialogProps = {
   variant: 'success' | 'info' | 'danger';
@@ -23,6 +12,21 @@ type DialogProps = {
   title: string;
   subtitle: string;
   isDisabled?: boolean;
+};
+
+const getIcon = (type: DialogProps['variant']) => {
+  switch (type) {
+    case 'danger':
+      return <IconDanger />;
+    case 'success':
+      return <IconSuccess />;
+    case 'info':
+      return <IconInfo />;
+    default: {
+      const _exhaustiveCheck: never = type;
+      throw new Error(`Unhandled type: ${_exhaustiveCheck}`);
+    }
+  }
 };
 
 export const Dialog: React.FC<DialogProps> = ({
@@ -34,24 +38,7 @@ export const Dialog: React.FC<DialogProps> = ({
   return (
     <div className={clsx(styles.dialog)}>
       <div className={clsx(styles.body)}>
-        {variant === 'danger' && (
-          <img
-            className={clsx(styles.icon)}
-            src='src/assets/svg/icon-danger.svg'
-          />
-        )}
-        {variant === 'info' && (
-          <img
-            className={clsx(styles.icon)}
-            src='src/assets/svg/icon-info.svg'
-          />
-        )}
-        {variant === 'success' && (
-          <img
-            className={clsx(styles.icon)}
-            src='src/assets/svg/icon-success.svg'
-          />
-        )}
+        {getIcon(variant)}
         <div className={clsx(styles.description)}>
           <p className={clsx(styles.title)}>{title}</p>
           <p className={clsx(styles.subtitle)}>{subtitle}</p>
@@ -59,16 +46,14 @@ export const Dialog: React.FC<DialogProps> = ({
       </div>
       <div className={clsx(styles.buttonWrapper)}>
         <Button color='secondary' disabled={isDisabled}>
-          {variant === 'success' && <span>OK</span>}
-          {variant !== 'success' && <span>Cancel</span>}
+          {variant === 'success' ? 'OK' : 'Cancel'}
         </Button>
         {variant === 'success' || (
           <Button
             color={variant === 'info' ? 'primary' : 'danger'}
             disabled={isDisabled}
           >
-            {variant === 'info' && <span>Create</span>}
-            {variant !== 'info' && <span>Delete</span>}
+            {variant === 'info' ? 'Create' : 'Delete'}
           </Button>
         )}
       </div>
