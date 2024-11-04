@@ -1,20 +1,5 @@
 @import 'src/scss/shared';
 
-.header {
-  text-align: left;
-  font-size: rem-calc(72);
-}
-
-.line {
-  height: rem-calc(40);
-  background-color: #1f2c4a;
-  width: 100%;
-  margin-top: rem-calc(61);
-}
-.icon {
-  height: rem-calc(64);
-  width: rem-calc(64);
-}
 .dialog {
   width: rem-calc(600);
   height: rem-calc(217);
@@ -41,23 +26,23 @@
     }
 
     .subtitle {
+      margin-top: rem-calc(8);
       font-size: rem-calc(13);
       font-weight: 500;
       line-height: rem-calc(17.2);
       color: $black;
     }
   }
-}
-
-.buttonWrapper {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: rem-calc(80);
-  top: rem-calc(242);
-  gap: rem-calc(20);
-  border-radius: 0 0 rem-calc(5) rem-calc(5);
-  border: 1px 0 0 0;
-  background: #f5f5f5;
-  padding: rem-calc(18) rem-calc(29.5) rem-calc(17) rem-calc(5);
+  .buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: rem-calc(80);
+    top: rem-calc(242);
+    gap: rem-calc(20);
+    border-radius: 0 0 rem-calc(5) rem-calc(5);
+    border: 1px 0 0 0;
+    background: #f5f5f5;
+    padding: rem-calc(18) rem-calc(29.5) rem-calc(17) rem-calc(5);
+  }
 }

@@ -3,7 +3,7 @@ import IconInfo from '@/assets/svg/icon-info.svg';
 import IconSuccess from '@/assets/svg/icon-success.svg';
 import { Button } from '@/component/Button/Button';
 import clsx from 'clsx';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import styles from './Dialog.module.scss';
 
 type DialogProps = {
@@ -12,6 +12,7 @@ type DialogProps = {
   title: string;
   subtitle: string;
   isDisabled?: boolean;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 const getIcon = (type: DialogProps['variant']) => {
@@ -34,6 +35,7 @@ export const Dialog: React.FC<DialogProps> = ({
   title,
   subtitle,
   isDisabled,
+  onClick,
 }) => {
   return (
     <div className={clsx(styles.dialog)}>
@@ -45,13 +47,14 @@ export const Dialog: React.FC<DialogProps> = ({
         </div>
       </div>
       <div className={clsx(styles.buttonWrapper)}>
-        <Button color='secondary' disabled={isDisabled}>
+        <Button color='secondary' disabled={isDisabled} onClick={onClick}>
           {variant === 'success' ? 'OK' : 'Cancel'}
         </Button>
         {variant === 'success' || (
           <Button
             color={variant === 'info' ? 'primary' : 'danger'}
             disabled={isDisabled}
+            onClick={onClick}
           >
             {variant === 'info' ? 'Create' : 'Delete'}
           </Button>
