@@ -18,11 +18,11 @@ type DialogProps = {
 const getIcon = (type: DialogProps['variant']) => {
   switch (type) {
     case 'danger':
-      return <IconDanger />;
+      return <IconDanger className={styles.icon} />;
     case 'success':
-      return <IconSuccess />;
+      return <IconSuccess className={styles.icon} />;
     case 'info':
-      return <IconInfo />;
+      return <IconInfo className={styles.icon} />;
     default: {
       const _exhaustiveCheck: never = type;
       throw new Error(`Unhandled type: ${_exhaustiveCheck}`);
