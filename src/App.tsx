@@ -23,10 +23,10 @@ const App: React.FC = () => {
     <div>
       <Button color='secondary' onClick={() => handleShowAlert('success')}>
         Alert Success
-      </Button>
+      </Button>{' '}
       <Button color='primary' onClick={() => handleShowAlert('info')}>
         Alert Info
-      </Button>
+      </Button>{' '}
       <Button color='danger' onClick={() => handleShowAlert('danger')}>
         Alert Danger
       </Button>
@@ -36,6 +36,7 @@ const App: React.FC = () => {
             variant={alertVariant}
             onClose={handleCloseAlert}
             onConfirm={handleCloseAlert}
+            isDisabled={true}
           />
         )}
       </div>

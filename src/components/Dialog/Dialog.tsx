@@ -22,12 +22,14 @@ interface AlertProps {
   variant: 'success' | 'info' | 'danger'; // Define the variant type
   onClose: () => void;
   onConfirm: () => void;
+  isDisabled: boolean;
 }
 
 export const Dialog: React.FC<AlertProps> = ({
   variant,
   onClose,
   onConfirm,
+  isDisabled,
 }) => {
   const dialogProps = {
     success: {
@@ -39,20 +41,18 @@ export const Dialog: React.FC<AlertProps> = ({
       title: 'New information',
       description: 'Neque porro quisquam est qui dolorem ipsum',
       confirmValue: 'Create',
-      isDisabled: false,
     },
     danger: {
       title: 'Are you sure you want to delete this user?',
       description: 'This action is irreversible',
       confirmValue: 'Delete',
-      isDisabled: false,
     },
   };
 
   return (
     <div className={clsx(styles.alertContainer)}>
       <div className={clsx(styles.alertContent)}>
-        <div className={clsx(styles.alertIcon)}>
+        <div>
           {(() => {
             switch (variant) {
               case 'success':
@@ -88,14 +88,14 @@ export const Dialog: React.FC<AlertProps> = ({
               <Button
                 color='secondary'
                 onClick={onClose}
-                isDisabled={dialogProps[variant].isDisabled}
+                isDisabled={isDisabled}
               >
                 Cancel
               </Button>
               <Button
                 color={variant === 'info' ? 'primary' : 'danger'}
                 onClick={onConfirm}
-                isDisabled={dialogProps[variant].isDisabled}
+                isDisabled={isDisabled}
               >
                 {dialogProps[variant].confirmValue}
               </Button>
